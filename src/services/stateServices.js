@@ -10,6 +10,22 @@ export default {
     });
   },
 
+  // Axios listening to clients interaction of getting one state info
+  // e.g : /api/state/Wisconsin
+  getOneState(stateName) {
+    return axios.get('/api/state/' + stateName).then((response) => {
+      // return data requested
+      return response.data;
+    });
+  },
+
+  // Grabbing only visited states
+  // Async/await choice from vs code suggestion. But also it reminded me that if when users have many states that they visited and perhaps maybe if we add not only states but other places around the world, and their review of those places with recommendation of that place visited in the future app improvement, async is able to run and read this function to request in the background while other apps and functions can run in the meantime.
+  async requestOnlyVisitedStates() {
+    const response = await axios.get('/api/states/visited');
+    return response.data;
+  },
+
   // Axios listening if we visited a certain state or not
 
   setVisitedOrNot(stateName, visited) {

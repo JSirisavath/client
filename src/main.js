@@ -5,6 +5,9 @@ import StateAPIService from './services/stateServices';
 
 import router from './router';
 
+// Bootstrapped leaflet styles
+import 'leaflet/dist/leaflet.css';
+
 // Make our state api service from state services global to our vue app
 let app = createApp(App);
 app.config.globalProperties.$stateServices = StateAPIService;

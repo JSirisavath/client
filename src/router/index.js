@@ -4,6 +4,13 @@ import StateListVue from '@/components/StateList.vue';
 
 import AboutSite from '@/components/AboutSite.vue';
 
+import StateMap from '@/components/StateMap.vue';
+
+// Not Found Page sFile import
+import NotFoundPage from '@/components/NotFoundPage.vue';
+
+import StatesVisited from '@/components/StatesVisited.vue';
+
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
@@ -18,6 +25,22 @@ export default createRouter({
       path: '/about',
       name: 'AboutSite',
       component: AboutSite,
+    },
+
+    { path: '/map/:state', name: 'StateMap', component: StateMap },
+
+    // New route to not found page
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFoundPage',
+      component: NotFoundPage,
+    },
+
+    // List of visited states page route
+    {
+      path: '/visited States',
+      name: 'StatesVisited',
+      component: StatesVisited,
     },
   ],
 });
